@@ -3,12 +3,10 @@
 
 package proto
 
-import (
-	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
-	timestamp "github.com/golang/protobuf/ptypes/timestamp"
-	math "math"
-)
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -19,7 +17,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type Audit struct {
 	Id                   string               `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -34,17 +32,16 @@ func (m *Audit) Reset()         { *m = Audit{} }
 func (m *Audit) String() string { return proto.CompactTextString(m) }
 func (*Audit) ProtoMessage()    {}
 func (*Audit) Descriptor() ([]byte, []int) {
-	return fileDescriptor_555bd8c177793206, []int{0}
+	return fileDescriptor_common_29f7b0acf086b94b, []int{0}
 }
-
 func (m *Audit) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Audit.Unmarshal(m, b)
 }
 func (m *Audit) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Audit.Marshal(b, m, deterministic)
 }
-func (m *Audit) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Audit.Merge(m, src)
+func (dst *Audit) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Audit.Merge(dst, src)
 }
 func (m *Audit) XXX_Size() int {
 	return xxx_messageInfo_Audit.Size(m)
@@ -80,9 +77,9 @@ func init() {
 	proto.RegisterType((*Audit)(nil), "proto.Audit")
 }
 
-func init() { proto.RegisterFile("common.proto", fileDescriptor_555bd8c177793206) }
+func init() { proto.RegisterFile("common.proto", fileDescriptor_common_29f7b0acf086b94b) }
 
-var fileDescriptor_555bd8c177793206 = []byte{
+var fileDescriptor_common_29f7b0acf086b94b = []byte{
 	// 152 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x49, 0xce, 0xcf, 0xcd,
 	0xcd, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x05, 0x53, 0x52, 0xf2, 0xe9, 0xf9,
