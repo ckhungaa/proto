@@ -1,0 +1,55 @@
+syntax = "proto3";
+package proto;
+
+import "common.proto";
+
+service ContactService {
+  rpc GetContactById (GetContactByIdRequest) returns (ContactResponse) {}
+  rpc GetContactsByOwnerId(GetContactsByOwnerIdRequest) returns (GetContactsByOwnerIdResponse){}
+}
+
+message GetContactByIdRequest {
+  string id = 1;
+}
+
+message GetContactsByOwnerIdRequest {
+  string userId = 1;
+}
+
+message GetContactsByOwnerIdResponse {
+  repeated ContactResponse contacts = 1;
+}
+
+message ContactResponse {
+  proto.Audit audit = 1;
+  string ownerId = 2;
+  string userId = 3;
+  string userName = 4;
+  string userAlias = 5;
+  string avatarId = 6;
+  ContactType contactType = 7;
+  string phoneNumber = 8;
+}
+
+message CallHistoryResponse {
+  proto.Audit audit = 1;
+  string fromUserId = 2;
+  string toUserId = 3;
+  CallType callType = 4;
+  int64 duration = 5;
+  string referenceId = 6;
+}
+
+enum ContactType {
+  UnknownContactType = 0;
+  AdminContactType = 1;
+  SubscriberContactType = 2;
+  FriendContactType = 3;
+}
+
+enum CallType {
+  UnknownCallType = 0;
+  TelVoiceCallType = 1;
+  DataVoiceCallType = 2;
+  DataVideoCallType = 3;
+}
