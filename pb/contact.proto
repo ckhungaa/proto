@@ -4,19 +4,19 @@ package proto;
 import "common.proto";
 
 service ContactServer {
-  rpc FindContactById (GetContactByIdRequest) returns (ContactResponse) {}
-  rpc FindContactsByOwnerId(GetContactsByOwnerIdRequest) returns (GetContactsByOwnerIdResponse){}
+  rpc FindContactById (FindContactByIdRequest) returns (ContactResponse) {}
+  rpc FindContactsByOwnerId(FindContactsByOwnerIdRequest) returns (FindContactsByOwnerIdResponse){}
 }
 
-message GetContactByIdRequest {
+message FindContactByIdRequest {
   string id = 1;
 }
 
-message GetContactsByOwnerIdRequest {
+message FindContactsByOwnerIdRequest {
   string userId = 1;
 }
 
-message GetContactsByOwnerIdResponse {
+message FindContactsByOwnerIdResponse {
   repeated ContactResponse contacts = 1;
 }
 
