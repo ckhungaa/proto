@@ -3,7 +3,7 @@ package proto;
 
 import "common.proto";
 
-service ContactService {
+service ContactServer {
   rpc GetContactById (GetContactByIdRequest) returns (ContactResponse) {}
   rpc GetContactsByOwnerId(GetContactsByOwnerIdRequest) returns (GetContactsByOwnerIdResponse){}
 }
