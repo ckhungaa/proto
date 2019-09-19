@@ -4,8 +4,8 @@ package proto;
 import "common.proto";
 
 service ContactServer {
-  rpc GetContactById (GetContactByIdRequest) returns (ContactResponse) {}
-  rpc GetContactsByOwnerId(GetContactsByOwnerIdRequest) returns (GetContactsByOwnerIdResponse){}
+  rpc FindContactById (GetContactByIdRequest) returns (ContactResponse) {}
+  rpc FindContactsByOwnerId(GetContactsByOwnerIdRequest) returns (GetContactsByOwnerIdResponse){}
 }
 
 message GetContactByIdRequest {
